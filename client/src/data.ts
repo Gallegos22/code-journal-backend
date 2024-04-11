@@ -84,7 +84,6 @@ export async function updateEntry(entry: Entry): Promise<Entry> {
 export async function removeEntry(entryId: number): Promise<void> {
   const req = {
     method: 'DELETE',
-    body: JSON.stringify(entryId),
   };
   const response = await fetch(`/api/entries/${entryId}`, req);
   if (!response.ok) {
