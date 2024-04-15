@@ -72,52 +72,52 @@ export function EntryForm() {
   return (
     <div className="container">
       <div className="row">
-        <div className="column-full d-flex justify-between">
+        <div className="col-span-1 flex justify-between">
           <h1>{isEditing ? 'Edit Entry' : 'New Entry'}</h1>
         </div>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="row margin-bottom-1">
-          <div className="column-half">
+        <div className="row mb-1">
+          <div className="columns-1 w-1/2">
             <img
-              className="input-b-radius form-image"
+              className="rounded max-h-48 mb-4 block ml-auto mr-auto aspect-auto"
               src={photoUrl || '/images/placeholder-image-square.jpg'}
               alt="entry"
             />
           </div>
-          <div className="column-half">
-            <label className="margin-bottom-1 d-block">
+          <div className="columns-1 w-1/2">
+            <label className="mb-1 block">
               Title
               <input
                 name="title"
                 defaultValue={entry?.title ?? ''}
                 required
-                className="input-b-color text-padding input-b-radius purple-outline input-height margin-bottom-2 d-block width-100"
+                className="border-gray-400 border p-2 rounded h-10 mb-8 w-full block"
                 type="text"
               />
             </label>
-            <label className="margin-bottom-1 d-block">
+            <label className="mb-1 block">
               Photo URL
               <input
                 name="photoUrl"
                 defaultValue={entry?.photoUrl ?? ''}
                 required
-                className="input-b-color text-padding input-b-radius purple-outline input-height margin-bottom-2 d-block width-100"
+                className="border-gray-400 border p-2 rounded h-10 mb-8 w-full block"
                 type="text"
                 onChange={(e) => setPhotoUrl(e.target.value)}
               />
             </label>
           </div>
         </div>
-        <div className="row margin-bottom-1">
-          <div className="column-full">
-            <label className="margin-bottom-1 d-block">
+        <div className="row mb-1">
+          <div className="columns-1 w-full">
+            <label className="mb-1 block">
               Notes
               <textarea
                 name="notes"
                 defaultValue={entry?.notes ?? ''}
                 required
-                className="input-b-color text-padding input-b-radius purple-outline d-block width-100"
+                className="border-gray-400 border p-2 rounded mb-8 block w-full"
                 cols={30}
                 rows={10}
               />
@@ -125,7 +125,7 @@ export function EntryForm() {
           </div>
         </div>
         <div className="row">
-          <div className="column-full d-flex justify-between">
+          <div className="columns-1 w-full flex justify-between">
             {isEditing && (
               <button
                 className="delete-entry-button"
@@ -134,7 +134,7 @@ export function EntryForm() {
                 Delete Entry
               </button>
             )}
-            <button className="input-b-radius text-padding purple-background white-text">
+            <button className="p-2 rounded text-white bg-purple-900">
               SAVE
             </button>
           </div>
@@ -143,19 +143,19 @@ export function EntryForm() {
       {isDeleting && (
         <div
           id="modalContainer"
-          className="modal-container d-flex justify-center align-center">
+          className="modal-container flex justify-center items-center">
           <div className="modal row">
-            <div className="column-full d-flex justify-center">
+            <div className="columns-1 flex justify-center w-full px-3">
               <p>Are you sure you want to delete this entry?</p>
             </div>
-            <div className="column-full d-flex justify-between">
+            <div className="columns-1 flex justify-between w-full px-3">
               <button
                 className="modal-button"
                 onClick={() => setIsDeleting(false)}>
                 Cancel
               </button>
               <button
-                className="modal-button red-background white-text"
+                className="modal-button bg-[#dc2626] text-white"
                 onClick={handleDelete}>
                 Confirm
               </button>
